@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXA AI Restaurant Chatbot</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #101820;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.box {
+  max-width: 420px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #202b36;
+  border-radius: 15px;
+}
+h1 { color: #ffd700; }
+button {
+  padding: 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background: #ffd700;
+  cursor: pointer;
+}
+input {
+  padding: 12px;
+  width: 85%;
+  border-radius: 8px;
+  border: none;
+  margin-top: 15px;
+}
+#answer { color: #7CFC98; margin-top: 20px; }
+</style>
+</head>
+
+<body>
+<div class="box">
+  <h1>NEXA AI</h1>
+  <h3>Restaurant Assistant</h3>
+  <p>Welcome! How can I help you?</p>
+
+  <button onclick="show('Menu: Burger, Pizza, Fries, Biryani')">
+    View Menu
+  </button>
+
+  <button onclick="show('Burger Rs 500 | Pizza Rs 1200 | Fries Rs 250 | Biryani Rs 350')">
+    Food Prices
+  </button>
+
+  <button onclick="show('We are open daily from 10 AM to 11 PM')">
+    Opening Hours
+  </button>
+
+  <input id="question" placeholder="Ask about food or prices">
+  <button onclick="reply()">Ask</button>
+
+  <p id="answer">Your answer will appear here.</p>
+</div>
+
+<script>
+function show(message) {
+  document.getElementById("answer").innerText = message;
+}
+
+function reply() {
+  let q = document.getElementById("question").value.toLowerCase();
+
+  if (q.includes("burger")) {
+    show("Our burger costs Rs 500.");
+  } else if (q.includes("pizza")) {
+    show("Our pizza costs Rs 1200.");
+  } else if (q.includes("biryani")) {
+    show("Our biryani costs Rs 350.");
+  } else if (q.includes("menu")) {
+    show("We offer burgers, pizza, fries and biryani.");
+  } else if (q.includes("time") || q.includes("open") || q.includes("hours")) {
+    show("We are open daily from 10 AM to 11 PM.");
+  } else {
+    show("Please ask about our menu, prices, burger, pizza or opening hours.");
+  }
+}
+</script>
+</body>
+  </html>
